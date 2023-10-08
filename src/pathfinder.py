@@ -100,7 +100,7 @@ def pathfind(problem: "MazeProblem") -> Optional[list[str]]:
                 frontier.put((integer, count, node))
     return None
 
-
+# >> [SC] Don't forget to add parameters and returns to your docstrings!
 def get_heuristic(goal_point: tuple[int, int], player_loc: tuple[int, int]) -> int:
     """
     takes in goal point and player location
@@ -110,6 +110,10 @@ def get_heuristic(goal_point: tuple[int, int], player_loc: tuple[int, int]) -> i
     x_goal, y_goal = goal_point
     return abs(x_goal - x) + abs(y_goal - y)
 
+# >> [SC] Okay, there is a lot of logic here for determining the best goal post. In the case
+# of A* search, the calculation of the minimum heuristic is responsible for determining which action would
+# be best to take. Using a priority queue, the children nodes will be sorted based on the lowest
+# total cost (i.e. heuristic + path cost)
 def get_best_goal_point(problem: "MazeProblem", targets: set[tuple[int,int]], initial_loc: tuple[int,int]) -> tuple[int,int]:
     """
     takes in targets, problem, and initial location
@@ -178,3 +182,30 @@ def _create_goal_path(last_move: str, current: Optional[SearchTreeNode]) -> list
         current = current.parent
     path = path[::-1]
     return list(path)
+
+    # ===================================================
+# >>> [SC] Summary
+# A solid submission that shows strong command of
+# programming fundamentals, generally good style,
+# and a good grasp on the problem and supporting
+# theory of A*. Indeed, there is definitely
+# a lot to like in what you have above, but
+# I think you didn't give yourself enough time to
+# efficiently implement the heuristic analysis / fix its logic 
+# problems on more general mazes. Give yourself more
+# time for future submissions and you'll be golden!
+# ---------------------------------------------------
+# >>> [SC] Style Checklist
+# [X] = Good, [~] = Mixed bag, [ ] = Needs improvement
+#
+# [X] Variables and helper methods named and used well
+# [X] Proper and consistent indentation and spacing
+# [X] Proper docstrings provided for ALL methods
+# [~] Logic is adequately simplified
+# [X] Code repetition is kept to a minimum
+# ---------------------------------------------------
+# Correctness:          60 / 100 (-2 / missed unit test)
+# Mypy Penalty:        -2 (-2 if mypy wasn't clean)
+# Style Penalty:       -0.25
+# Total:                57.75/ 100
+# ===================================================
