@@ -204,8 +204,8 @@ def _create_goal_path(last_move: str, current: Optional[SearchTreeNode]) -> list
 # [~] Logic is adequately simplified
 # [X] Code repetition is kept to a minimum
 # ---------------------------------------------------
-# Correctness:          60 / 100 (-2 / missed unit test)
+# Correctness:          62 / 100 (-2 / missed unit test)
 # Mypy Penalty:        -2 (-2 if mypy wasn't clean)
 # Style Penalty:       -0.25
-# Total:                57.75/ 100
+# Total:                59.75/ 100
 # ===================================================
